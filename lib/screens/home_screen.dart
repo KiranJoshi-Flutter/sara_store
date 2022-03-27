@@ -522,6 +522,89 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
+              SizedBox(
+                height: 16.0,
+              ),
+              Container(
+                height: 30.0,
+                width: double.infinity,
+                // color: Colors.red,
+                padding: EdgeInsets.symmetric(
+                  vertical: 0.0,
+                  horizontal: 16.0,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Shop By Category',
+                      style: appTextStyle(
+                        FontWeight.w600,
+                        18.0,
+                        kTextColor,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Text(
+                        'View all',
+                        style: appTextStyle(
+                          FontWeight.bold,
+                          14.0,
+                          kGradientPrimary.withOpacity(0.75),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(
+                  vertical: 8.0,
+                  horizontal: 16.0,
+                ),
+                height: 80.0,
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  physics: BouncingScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return Card(
+                      elevation: 0.0,
+                      color: Colors.transparent,
+                      child: Container(
+                        width: 60.0,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(
+                              16.0,
+                            ),
+                          ),
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 0.75,
+                          ),
+                        ),
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                            vertical: 8.0,
+                            horizontal: 16.0,
+                          ),
+                          child: Image.network(
+                              'https://mayrasales.com/assets/images/categories/1601794932fashion.png'),
+                        ),
+                      ),
+                    );
+                  },
+                  separatorBuilder: (BuildContext context, int index) {
+                    return SizedBox(
+                      width: 4.0,
+                    );
+                  },
+                  itemCount: 7,
+                ),
+              ),
             ],
           ),
         ),
