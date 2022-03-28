@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 MaterialColor createMaterialColor(Color color) {
   List strengths = <double>[.05];
@@ -19,4 +20,14 @@ MaterialColor createMaterialColor(Color color) {
   }
   ;
   return MaterialColor(color.value, swatch);
+}
+
+Future<bool> imageURLCheck(String url) async {
+  final response = await http.head(Uri.parse(url));
+
+  if (response.statusCode == 200) {
+    return true;
+  } else {
+    return false;
+  }
 }

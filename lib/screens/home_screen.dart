@@ -1,8 +1,13 @@
 import 'package:animation_wrappers/animations/faded_slide_animation.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/components/avatar/gf_avatar.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sara_store/constants.dart';
+import 'package:sara_store/functions.dart';
+import 'package:sara_store/screens/widgets/ads_widget.dart';
+import 'package:sara_store/screens/widgets/header_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -604,6 +609,334 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                   itemCount: 7,
                 ),
+              ),
+              AdsWidget(
+                ad1Url:
+                    'https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmlld3xlbnwwfHwwfHw%3D&w=1000&q=80',
+                ad2Url:
+                    'https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmlld3xlbnwwfHwwfHw%3D&w=1000&q=80',
+                onClickAd1: (() {}),
+                onClickAd2: (() {}),
+              ),
+              Column(
+                children: [
+                  SizedBox(
+                    height: 8.0,
+                  ),
+                  HeaderWidget(
+                    title: 'Premium Products',
+                    onClick: () {},
+                  ),
+                  Container(
+                    // child: Text("Abcd"),
+                    height: 120,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 7,
+                      physics: BouncingScrollPhysics(),
+                      //   //controller: _scrollController,
+                      padding: const EdgeInsets.only(left: 8, right: 8),
+                      itemBuilder: (context, index) {
+                        var discount = 0;
+
+                        return Padding(
+                          padding: EdgeInsets.only(left: 4),
+                          child: SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.3,
+                            child: GestureDetector(
+                              onTap: () {},
+                              child: Stack(
+                                // crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  AspectRatio(
+                                    aspectRatio: 1.02,
+                                    child: Card(
+                                      elevation: 0,
+                                      color: Colors.transparent,
+                                      child: Container(
+                                        width: 60,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(
+                                              16,
+                                            ),
+                                          ),
+                                        ),
+                                        child: Container(
+                                          padding: const EdgeInsets.symmetric(
+                                            vertical: 4.0,
+                                            horizontal: 4.0,
+                                          ),
+                                          child: FutureBuilder(
+                                            future: imageURLCheck(
+                                                "https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmlld3xlbnwwfHwwfHw%3D&w=1000&q=80"),
+                                            builder: (context, asyncSnapshot) {
+                                              if (asyncSnapshot.hasData) {
+                                                if (asyncSnapshot.data !=
+                                                    null) {
+                                                  return Container(
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.white,
+                                                      borderRadius:
+                                                          BorderRadius.all(
+                                                        Radius.circular(
+                                                          16,
+                                                        ),
+                                                      ),
+                                                      image: DecorationImage(
+                                                        fit: BoxFit.fill,
+                                                        image: NetworkImage(
+                                                          'https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg',
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    // child: Image.network(
+                                                    //   '$thumbnailBaseURL/${snapshot.data.homeScreen.premiumProducts[index].thumbnail}',
+                                                    //   fit: BoxFit.cover,
+                                                    // ),
+                                                  );
+                                                } else {
+                                                  return Container(
+                                                    child: CircleAvatar(
+                                                      radius: 60,
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      backgroundImage:
+                                                          AssetImage(
+                                                        "assets/images/no_image.png",
+                                                      ),
+                                                    ),
+                                                  );
+                                                }
+                                              } else {
+                                                return CupertinoActivityIndicator(
+                                                  radius: 5,
+                                                );
+                                              }
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  )
+                ],
+              ),
+              Column(
+                children: [
+                  SizedBox(
+                    height: 8.0,
+                  ),
+                  HeaderWidget(
+                    title: 'Big Saves',
+                    onClick: (() {}),
+                  ),
+                  Container(
+                    // child: Text("Abcd"),
+                    height: 200,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 6,
+                      physics: BouncingScrollPhysics(),
+                      //   //controller: _scrollController,
+                      padding: const EdgeInsets.only(left: 8, right: 8),
+                      itemBuilder: (context, index) {
+                        var discount = 0;
+
+                        return GestureDetector(
+                          onTap: () {},
+                          child: Card(
+                            elevation: 1,
+                            margin: EdgeInsets.only(
+                              right: 16.0,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                16,
+                              ),
+                            ),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(
+                                  16,
+                                ),
+                                // color: kGradientPrimary,
+                              ),
+                              width: MediaQuery.of(context).size.width * 0.4,
+                              height: 200,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Expanded(
+                                    flex: 3,
+                                    child: Stack(
+                                      children: [
+                                        FutureBuilder(
+                                          future: imageURLCheck(
+                                              "https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmlld3xlbnwwfHwwfHw%3D&w=1000&q=80"),
+                                          builder: (context, asyncSnapshot) {
+                                            if (asyncSnapshot.hasData) {
+                                              if (asyncSnapshot.data != null) {
+                                                return Container(
+                                                  padding: EdgeInsets.symmetric(
+                                                    vertical: 8.0,
+                                                    horizontal: 8.0,
+                                                  ),
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.white,
+                                                    borderRadius:
+                                                        BorderRadius.only(
+                                                      topLeft: Radius.circular(
+                                                        16.0,
+                                                      ),
+                                                      topRight: Radius.circular(
+                                                        16.0,
+                                                      ),
+                                                    ),
+                                                    image: DecorationImage(
+                                                      image: NetworkImage(
+                                                        'https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmlld3xlbnwwfHwwfHw%3D&w=1000&q=80',
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              } else {
+                                                return Center(
+                                                  child: Container(
+                                                    // color: Colors.black,
+                                                    // width: 200,
+                                                    child: CircleAvatar(
+                                                      radius: 60,
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      backgroundImage:
+                                                          AssetImage(
+                                                        "assets/images/no_image.png",
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              }
+                                            } else {
+                                              return Center(
+                                                child:
+                                                    CupertinoActivityIndicator(
+                                                  radius: 5,
+                                                ),
+                                              );
+                                            }
+                                          },
+                                        ),
+                                        Positioned(
+                                          left: 0,
+                                          child: Container(
+                                            margin: EdgeInsets.only(
+                                              left: 0.0,
+                                              top: 0.0,
+                                            ),
+                                            padding: const EdgeInsets.symmetric(
+                                              vertical: 4.0,
+                                              horizontal: 8.0,
+                                            ),
+                                            decoration: BoxDecoration(
+                                              color: Colors.red,
+                                              borderRadius: BorderRadius.only(
+                                                // topRight:
+                                                //     Radius
+                                                //         .circular(
+                                                //   16,
+                                                // ),
+                                                bottomRight: Radius.circular(
+                                                  16,
+                                                ),
+                                                topLeft: Radius.circular(
+                                                  16,
+                                                ),
+                                              ),
+                                            ),
+                                            child: Text(
+                                              '${discount.toInt()}% off',
+                                              style: appTextStyle(
+                                                FontWeight.bold,
+                                                10,
+                                                Colors.white,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Expanded(
+                                    flex: 2,
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 8.0,
+                                      ),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Expanded(
+                                            child: Text(
+                                              'check',
+                                              style: appTextStyle(
+                                                FontWeight.w500,
+                                                14.0,
+                                                kTextColor,
+                                              ),
+                                              maxLines: 2,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ),
+                                          Row(
+                                            children: [
+                                              Expanded(
+                                                child: Text(
+                                                  'check',
+                                                  style: appTextStyle(
+                                                    FontWeight.bold,
+                                                    16.0,
+                                                    kGradientPrimary,
+                                                  ),
+                                                ),
+                                              ),
+                                              Text(
+                                                'check',
+                                                style: GoogleFonts.mukta(
+                                                  color: Colors.red,
+                                                  fontSize: 10.0,
+                                                  decoration: TextDecoration
+                                                      .lineThrough,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: 4.0,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
