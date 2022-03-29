@@ -15,6 +15,8 @@ const kGradientPrimary = Color(0xFFFD9346);
 const kGradientSecondary = Color(0xFFFD7F2C);
 const kGradientTertiary = Color(0xFFFF6200);
 
+const kLogoBlur = Color(0xFF047bfb);
+
 TextStyle appTextStyle(
     FontWeight fontWeight, double fontSize, Color textColor) {
   return GoogleFonts.mukta(

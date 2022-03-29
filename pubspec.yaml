@@ -42,6 +42,7 @@ dependencies:
   show_up_animation: ^2.0.0
   getwidget: any
   carousel_slider: any
+  flutter_html: any
   
 
 dev_dependencies:

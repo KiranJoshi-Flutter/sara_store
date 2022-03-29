@@ -6,6 +6,7 @@ import 'package:getwidget/components/avatar/gf_avatar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sara_store/constants.dart';
 import 'package:sara_store/functions.dart';
+import 'package:sara_store/screens/product_detail_screen.dart';
 import 'package:sara_store/screens/widgets/ads_widget.dart';
 import 'package:sara_store/screens/widgets/header_widget.dart';
 
@@ -644,7 +645,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: SizedBox(
                             width: MediaQuery.of(context).size.width * 0.3,
                             child: GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ProductDetailScreen(),
+                                  ),
+                                );
+                              },
                               child: Stack(
                                 // crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
