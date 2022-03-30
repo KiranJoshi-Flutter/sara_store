@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sara_store/constants.dart';
 import 'package:sara_store/screens/main_screen.dart';
 import 'package:sara_store/splash_screen.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: createMaterialColor(kPrimaryColor),
+        textTheme: GoogleFonts.muktaTextTheme(),
       ),
       home: SplashScreen(),
     );

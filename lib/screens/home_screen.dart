@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:sara_store/constants.dart';
 import 'package:sara_store/functions.dart';
 import 'package:sara_store/screens/product_detail_screen.dart';
+import 'package:sara_store/screens/profile_screen.dart';
 import 'package:sara_store/screens/widgets/ads_widget.dart';
 import 'package:sara_store/screens/widgets/header_widget.dart';
 
@@ -29,6 +30,12 @@ class _HomeScreenState extends State<HomeScreen> {
             20.0,
             Colors.white,
           ),
+          // style: TextStyle(
+          //   fontWeight: FontWeight.w500,
+          //   fontSize: 20.0,
+          //   color: Colors.white,
+          //   letterSpacing: 0.1,
+          // ),
         ),
         flexibleSpace: Container(
           // height: 100.0,
@@ -270,7 +277,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         kTextColor,
                       ),
                     ),
-                    onTap: () async {},
+                    onTap: () async {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProfileScreen(),
+                        ),
+                      );
+                    },
                   ),
                   ListTile(
                     title: Text(
