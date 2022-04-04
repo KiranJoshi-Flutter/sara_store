@@ -8,6 +8,7 @@ import 'package:sara_store/constants.dart';
 import 'package:sara_store/functions.dart';
 import 'package:sara_store/screens/product_detail_screen.dart';
 import 'package:sara_store/screens/profile_screen.dart';
+import 'package:sara_store/screens/profile_screen_2.dart';
 import 'package:sara_store/screens/widgets/ads_widget.dart';
 import 'package:sara_store/screens/widgets/header_widget.dart';
 
@@ -278,10 +279,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     onTap: () async {
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => ProfileScreen(),
+                      //   ),
+                      // );
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ProfileScreen(),
+                          builder: (context) => ProfileScreen2(),
                         ),
                       );
                     },
